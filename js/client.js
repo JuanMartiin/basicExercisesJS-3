@@ -1,7 +1,7 @@
 let button = document.getElementById("login-btn");
 const user = document.getElementById('user');
 const password = document.getElementById('password');
-
+var token;
 
 
 async function login(url, data) {
@@ -31,18 +31,26 @@ async function authenticated(url) {
 }
 
 async function init() {
+    
     await login("http://localhost:3000/login", {
         user: user.value,
         password: password.value,
     }).then(res => {
+        if(res.data == false){
+            document.getElementById('error').style.display = 'block';
+            document.getElementById('log').style.display = 'none';
+        }
         token = res.data.token;
+        console.log(token);
     }).catch(res => {
         console.log('Something went wrong');
     });
-    console.log("Token: " + token);
 
     authenticated("http://localhost:3000/authenticated")
     .then(res => {
-        console.log(res.message);
+        if( res.data == true ){
+            document.getElementById('log').style.display = 'block';
+            document.getElementById('error').style.display = 'none';
+        }
     }).catch(res => console.log(res));
 }

@@ -10,8 +10,9 @@ app.use(express.json());
 
 
 //----------------------ERROR--------------------------------------
-app.use('../style.css',express.static(__dirname + '../style.css'));
-app.use('./client.js',express.static(__dirname + './client.js'));
+
+app.use(express.static(path.join(__dirname, '..')));
+app.use(express.static(path.join(__dirname, '..', '/js')));
 //----------------------ERROR--------------------------------------
 
 
@@ -38,7 +39,9 @@ const passwordCorrect = "12345678";
 
 app.post("/login", async (req, res) => {
     // create token
+    
     if(req.body.user == userCorrect && req.body.password == passwordCorrect){
+        console.log("entra");
         const token = jwt.sign({
             user: req.body.user,
             password: req.body.password,
@@ -47,11 +50,14 @@ app.post("/login", async (req, res) => {
             error: null,
             data: { token }
         });
+    }else{
+        res.send({data: false});
+    
     }
 });
 
 app.get('/authenticated', authenticateToken, async (req, res) => {
-    res.send({ 'message': 'Valid token' });
+        res.send({data: true});
 });
 
 app.get('/', (req, res) => {
