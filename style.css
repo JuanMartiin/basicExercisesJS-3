@@ -1,0 +1,80 @@
+.log{
+    display: none;
+    margin: 0 auto;
+    margin-top: 50px;
+    color: white;
+    text-align: center;
+}
+
+.error{
+    display: none;
+    margin: 0 auto;
+    margin-top: 50px;
+    color: white;
+    text-align: center;
+}
+
+p{
+    margin: 0 auto;
+    margin-top: 50px;
+    color: white;
+    font-size: 1em;
+    text-align: center;
+}
+
+body{
+    background-color: black;
+}
+
+.autenticacion{
+    margin: 0 auto;
+    margin-top: 325px;
+    width: 350px;
+    height: 300px;
+    background-color: coral;
+    border-radius: 5px;
+}
+
+.user{
+    margin: 0 auto;
+    width: 300px;
+    height: 20px;
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 3px;
+}
+
+.password{
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 300px;
+    height: 20px;
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 3px;
+}
+
+#login-btn{
+    margin: 0 auto;
+    margin-top: 60px;
+    width: 60px;
+    height: 20px;
+    border: 1px solid black;
+    text-align: center;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+#login-btn:hover{
+    background-color: black;
+    color: white;
+    transition: all .5s ease;
+}
+
+.separar{
+    margin: 0 auto;
+    width: 310px;
+    height: 100px;
+    padding-top: 80px;
+}
